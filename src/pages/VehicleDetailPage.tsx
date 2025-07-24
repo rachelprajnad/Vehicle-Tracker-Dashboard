@@ -66,7 +66,7 @@ export const VehicleDetailPage: React.FC = () => {
 
   return (
     <div className="w-screen min-h-screen bg-gray-50 dark:bg-gray-950">
-      {/* Back Button */}
+      {}
       <div className="pt-6 pb-4 px-6">
         <button onClick={() => navigate('/')} className="inline-flex items-center text-sm text-primary-600 hover:text-primary-700 transition-transform hover:scale-105">
           <ArrowLeft className="w-4 h-4 mr-2" />
@@ -75,7 +75,7 @@ export const VehicleDetailPage: React.FC = () => {
       </div>
 
       <div className="px-6 pb-10 space-y-6 w-full">
-        {/* Vehicle Header */}
+        {}
         {vehicle && (
           <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow flex items-center w-full">
             <div className="p-4 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl mr-4 flex items-center justify-center w-20 h-20">
@@ -88,10 +88,10 @@ export const VehicleDetailPage: React.FC = () => {
           </div>
         )}
 
-        {/* Error */}
+        {}
         {error && <ErrorMessage message={error} onRetry={handleRetry} onDismiss={clearError} className="mb-6" />}
 
-        {/* Loading */}
+        {}
         {loading && (
           <div className="flex flex-col items-center justify-center py-12">
             <LoadingSpinner size="lg" />
@@ -99,10 +99,10 @@ export const VehicleDetailPage: React.FC = () => {
           </div>
         )}
 
-        {/* Telemetry */}
+        {}
         {!loading && !error && telemetry && (
           <div className="space-y-6 animate-fade-in w-full">
-            {/* Quick Stats */}
+            {}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
               <div className="card hover:shadow-lg transition-shadow text-center p-6 rounded-xl w-full">
                 <Gauge className="w-8 h-8 text-primary-500 mx-auto mb-3" />
@@ -125,7 +125,7 @@ export const VehicleDetailPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Detailed Telemetry */}
+            {}
             <div className="card bg-white dark:bg-gray-900 p-6 rounded-2xl shadow w-full">
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Detailed Telemetry</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -144,7 +144,7 @@ export const VehicleDetailPage: React.FC = () => {
           </div>
         )}
 
-        {/* Empty State */}
+        {}
         {!loading && !error && !telemetry && (
           <div className="text-center py-12 w-full">
             <div className="mx-auto w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mb-4">

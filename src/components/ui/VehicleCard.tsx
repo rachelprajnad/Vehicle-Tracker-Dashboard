@@ -51,18 +51,18 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onViewDetail 
 
   return (
     <div className="bg-white rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-300 overflow-hidden flex flex-col group hover:scale-105 transform border border-gray-100">
-      {/* Gambar kendaraan jika ada, kalau tidak pakai ikon */}
+      {}
       <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center">
         {vehicleImage ? <img src={vehicleImage} alt={vehicle.name} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" /> : <Car className="w-12 h-12 text-white opacity-80" />}
         <div className="absolute inset-0 bg-black bg-opacity-10 group-hover:bg-opacity-0 transition-all duration-300"></div>
 
-        {/* Status indicator */}
+        {}
         <div className="absolute top-4 right-4">
           <div className={`w-3 h-3 rounded-full ${vehicle.status === 'ACTIVE' ? 'bg-success-400' : vehicle.status === 'MAINTENANCE' ? 'bg-warning-400' : 'bg-error-400'} shadow-lg animate-pulse-slow`}></div>
         </div>
       </div>
 
-      {/* Konten */}
+      {}
       <div className="p-4 sm:p-5 flex flex-col flex-1">
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
