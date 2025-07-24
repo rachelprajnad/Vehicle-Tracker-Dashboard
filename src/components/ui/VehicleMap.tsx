@@ -3,13 +3,27 @@ import React, { useEffect } from 'react';
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import type { Vehicle } from '../../types/vehicle';
 
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+const DefaultIcon = new Icon({
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+  iconRetinaUrl: markerIcon2x,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
+
 const createVehicleIcon = (status: Vehicle['status']) => {
   let color = '#3b82f6'; // blue for active
   if (status === 'INACTIVE') color = '#ef4444'; // red
   if (status === 'MAINTENANCE') color = '#f59e0b'; // yellow
 
   return new Icon({
-    iconUrl: `data:image/svg+xml;base64,${btoa(` 
+    iconUrl: `data:image/svg+xml;base64,${btoa(`
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="16" cy="16" r="12" fill="${color}" stroke="white" stroke-width="3"/>
         <circle cx="16" cy="16" r="6" fill="white"/>
@@ -34,6 +48,7 @@ const FitBounds: React.FC<{ vehicles: Vehicle[] }> = ({ vehicles }) => {
   useEffect(() => {
     if (vehicles.length > 0) {
       const bounds = new LatLngBounds(vehicles.map((vehicle) => [-6.2 + vehicle.id * 0.05, 106.8 + vehicle.id * 0.03]));
+
       map.fitBounds(bounds, { padding: [20, 20] });
     }
   }, [vehicles, map]);
